@@ -104,13 +104,19 @@
 									window.alert("Your stored messages could not be sent!");
 								} else {
 									window.alert("All stored messages have been sent!");
+									localStorage.clear();
 								}
+								
 							}
 						});
 					} else {
-						window.alert("Nothing Stored In localStorage!");
+						// Do nothing
 					}
 				}
+			} else {
+				$("form").submit(function() {
+					return false;
+				});
 			}
 		}
 

@@ -1,3 +1,16 @@
 CACHE MANIFEST
-http://cache.macmannis.com/css/stylesheet.css
-http://cache.macmannis.com/js/jquery-min.js
+# Version 10
+
+CACHE:
+css/stylesheet.css
+js/jquery-min.js
+
+NETWORK:
+success.php
+failed.php
+process.php
+process_offline.php
+
+FALLBACK:
+success.php success.htm
+failed.php failed.htm
