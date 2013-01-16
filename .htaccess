@@ -1,0 +1,13 @@
+ExpiresActive On
+ExpiresDefault A0
+
+ServerSignature Off
+
+<FilesMatch "\.(mf)$">
+	ExpiresDefault "access plus 5 seconds"
+	Header append Cache-Control "public"
+</FilesMatch>
+
+<ifmodule mod_mime.c>
+	AddType text/cache-manifest .appcache
+</ifmodule>

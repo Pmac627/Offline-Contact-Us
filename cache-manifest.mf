@@ -1,0 +1,3 @@
+CACHE MANIFEST
+http://cache.macmannis.com/css/stylesheet.css
+http://cache.macmannis.com/js/jquery-min.js

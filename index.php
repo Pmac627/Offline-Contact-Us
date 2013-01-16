@@ -84,5 +84,52 @@
 			<input class="contact-button" type="submit" name="submit" value="Send Message!" />
 		</div>
 	</form>
+	<script type="text/javascript">
+		// Check to see if there are any saved items to send and send them!
+		function checkLocalStorage() {
+			if(window.navigator.onLine == true) {
+				if(typeof(Storage) !== "undefined") {
+					if(localStorage["contact_name"]) {
+						$.ajax({
+							type: "POST",
+							url: "process_offline.php",
+							data: {
+								contact_name: localStorage.getItem('contact_name'),
+								contact_ipv4: localStorage.getItem('contact_ipv4'),
+								contact_email: localStorage.getItem('contact_email'),
+								contact_message: localStorage.getItem('contact_message')
+							},
+							success: function(data) {
+								if(data == 'FAIL') {
+									window.alert("Your stored messages could not be sent!");
+								} else {
+									window.alert("All stored messages have been sent!");
+								}
+							}
+						});
+					} else {
+						window.alert("Nothing Stored In localStorage!");
+					}
+				}
+			}
+		}
+
+		$(document).ready(function () {
+			$('.contact-button').click(function() {
+				if(window.navigator.onLine == false) {
+					if(typeof(Storage) !== "undefined") {
+						window.alert("Because the application is offline, your message will be saved to localStorage. Next time you are online and visit this site, the message will be automatically sent!");
+						// Save to localStorage
+						localStorage[$('#contact_ipv4').attr('name')] = $('#contact_ipv4').val();
+						localStorage[$('#contact_name').attr('name')] = $('#contact_name').val();
+						localStorage[$('#contact_email').attr('name')] = $('#contact_email').val();
+						localStorage[$('#contact_message').attr('name')] = $('#contact_message').val();
+					} else {
+						window.alert("Your message could not be sent because you are offline. Your message could not be saved because your browser does not currently support localStorage.");
+					}
+				}
+			});
+		});
+	</script>
 </body>
 </html>
