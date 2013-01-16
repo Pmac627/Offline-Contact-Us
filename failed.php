@@ -29,23 +29,17 @@
 	} else {
 		$output = "Unknown Error Code. Contact Tech Support.";
 	}
+	$title = "Failed :: ";
+	include('header.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>Offline Contact App :: Failed!</title>
-	<link type="text/css" href="css/stylesheet.css" rel="stylesheet" media="screen" />
-	<script type="text/javascript" src="js/jquery-min.js"></script>
-</head>
-<body>
-	<form class="contact-form" action="#" method="post">
+
+	<div class="contact-form">
 		<p class="contact-text-full">
 			FAILED TO SUBMIT PROPERLY:<br><br>
 			ERROR CODE: #<?php echo $_GET['e']; ?><br>
 			<?php echo $output; ?><br><br>
 			<a href="index.php">Click Here To Try Again.</a>
 		</p>
-	</form>
+	</div>
 </body>
 </html>
