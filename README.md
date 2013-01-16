@@ -4,14 +4,15 @@ A proof of concept for a contact form that accepts and saves input offline.
 
 ## Technologies ##
 
-HTML5
-	localStorage API
-	Cache Manifest
-	New Form Attributes &amp; Types
-CSS3
-PHP 5.2.17+
-JavaScript
-	jQuery 1.7.1
+* HTML5
+	* localStorage API
+	* Cache Manifest
+	* New Form Attributes &amp; Types
+* CSS3
+* PHP 5.2.17
+* JavaScript
+	* jQuery 1.7.1
+* MySQL 5.1.63
 
 ## How It Works ##
 
@@ -26,4 +27,5 @@ This proof of concept uses a MySQL database to store the information as well as 
 ## Example In Action ##
 
 http://cache.macmannis.com/
+
 2013/01/16 15:42 EST
